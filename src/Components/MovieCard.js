@@ -7,7 +7,7 @@ import { imdb, defaultPoster } from "../images/urls";
 export default function MovieCard({ movieTitle, movieOverview }) {
   const [movie, setMovie] = useState({});
   useEffect(() => {
-    const encodedMovieTitle = encodeURI(movieTitle, movieOverview);
+    const encodedMovieTitle = encodeURI(movieTitle);
     const key = "b604c6a8";
     const url = `https://www.omdbapi.com/?t=${encodedMovieTitle}&apikey=${key}`;
     fetch(url)
@@ -28,7 +28,6 @@ export default function MovieCard({ movieTitle, movieOverview }) {
               marginRight: "10px"
             }}
           />
-
           {value}
         </>
       );
